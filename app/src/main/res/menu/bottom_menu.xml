@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/bottom_menu_settings_id"
+        android:title="Settings"
+        android:icon="@drawable/round_settings_24"/>
+
+    <item
+        android:id="@+id/bottom_menu_batteryell_id"
+        android:title="Home"
+        android:icon="@drawable/round_access_alarm_24"/>
+
+    <item
+        android:id="@+id/bottom_menu_battery_info_id"
+        android:title="Info"
+        android:icon="@drawable/round_battery_std_24"/>
+
+</menu>

@@ -1,0 +1,41 @@
+plugins {
+    alias(libs.plugins.com.android.application)
+}
+
+android {
+    namespace 'com.bmarpc.acpsiam.batteryells'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.bmarpc.acpsiam.batteryells"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation "com.airbnb.android:lottie:6.1.0"
+}
