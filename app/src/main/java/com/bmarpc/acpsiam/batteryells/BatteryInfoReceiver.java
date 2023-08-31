@@ -65,19 +65,19 @@ public class BatteryInfoReceiver extends BroadcastReceiver {
         int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0);
         switch (plugged) {
             case BatteryManager.BATTERY_PLUGGED_WIRELESS:
-                pluggedLbl = "Wireless Charging";
+                pluggedLbl = "Wireless Charger";
                 break;
 
             case BatteryManager.BATTERY_PLUGGED_USB:
-                pluggedLbl = "USB Charging";
+                pluggedLbl = "USB";
                 break;
 
             case BatteryManager.BATTERY_PLUGGED_AC:
-                pluggedLbl = "AC Charging";
+                pluggedLbl = "AC Charger";
                 break;
 
             default:
-                pluggedLbl = "Not Charging";
+                pluggedLbl = "None";
                 break;
         }
 
@@ -121,7 +121,7 @@ public class BatteryInfoReceiver extends BroadcastReceiver {
         capacity = (float) getBatteryCapacity(context); //In mAh
 
 
-        fragmentBatteryInfo.updateBatteryUI(batteryPct, pluggedLbl, healthLbl, temp);
+        fragmentBatteryInfo.updateBatteryUI(batteryPct, pluggedLbl, healthLbl, temp, technology, String.valueOf(capacity), String.valueOf(voltage), statusLbl);
     }
 
 

@@ -1,7 +1,5 @@
 package com.bmarpc.acpsiam.batteryells.fragments;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
@@ -15,27 +13,32 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.bmarpc.acpsiam.batteryells.BatteryInfoReceiver;
-import com.bmarpc.acpsiam.batteryells.MainActivity;
 import com.bmarpc.acpsiam.batteryells.R;
 
 public class FragmentBatteryInfo extends Fragment {
 
-    TextView batteryLevelPercentageTextView, batteryServiceRunningTextView,
-            chargingStatusTextView, healthTextView, batteryTemperatureTextView;
+    TextView batteryLevelPercentageTextView,
+//            batteryServiceRunningTextView,
+pluggedStatusTextView,
+            healthTextView,
+            batteryTemperatureTextView,
+    batteryTechnologyTextView,
+    batteryCapacityTextView,
+    batteryVoltageTextview
+    ;
     BatteryInfoReceiver batteryInfoReceiver;
-    LottieAnimationView batteryLevelProgressLottie;
+    LottieAnimationView batteryLevelProgressLottie, batteryChargingIndicatorLottie;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
     public FragmentBatteryInfo() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -47,11 +50,14 @@ public class FragmentBatteryInfo extends Fragment {
         //*Finding IDs
         batteryLevelProgressLottie = v.findViewById(R.id.battery_level_progress_lottie_id);
         batteryLevelPercentageTextView = v.findViewById(R.id.battery_level_percentage_textview_id);
-        batteryServiceRunningTextView = v.findViewById(R.id.battery_service_running_textview_id);
-        chargingStatusTextView = v.findViewById(R.id.chatting_status_textview_id);
+//        batteryServiceRunningTextView = v.findViewById(R.id.battery_service_running_textview_id);
+        pluggedStatusTextView = v.findViewById(R.id.plugged_status_textview_id);
         healthTextView = v.findViewById(R.id.battery_health_textview_id);
         batteryTemperatureTextView = v.findViewById(R.id.battery_temperature_textview_id);
-
+        batteryTechnologyTextView = v.findViewById(R.id.battery_technology_textview_id);
+        batteryCapacityTextView = v.findViewById(R.id.battery_capacity_textview_id);
+        batteryVoltageTextview = v.findViewById(R.id.battery_voltage_textview_id);
+        batteryChargingIndicatorLottie = v.findViewById(R.id.charging_indicator_lottie_id);
 
 
         // Initialize SharedPreference
@@ -68,26 +74,23 @@ public class FragmentBatteryInfo extends Fragment {
 
 
         animateBatteryLevel();
-        batteryServiceRunningTextView.setText(sharedPreferences.getBoolean(getString(R.string.BATTERY_SERVICE_ON_BOOL), false) ? "Yes" : "No");
+//        batteryServiceRunningTextView.setText(sharedPreferences.getBoolean(getString(R.string.BATTERY_SERVICE_ON_BOOL), false) ? "Yes" : "No");
 
 
         return v;
     }
 
 
-
-
-
-
-    public void updateBatteryUI(int batteryLevel, String state, String health, float temperature) {
+    public void updateBatteryUI(int batteryLevel, String pluggedState, String health, float temperature,
+                                String technology, String capacity, String voltage, String statusLbl) {
         if (isAdded()) {
             requireActivity().runOnUiThread(() -> {
                 if (!batteryLevelPercentageTextView.getText().toString().equals(batteryLevel + "%")) {
                     animateTextChange(batteryLevelPercentageTextView, batteryLevel + "%");
                 }
 
-                if (!chargingStatusTextView.getText().toString().equals(state)) {
-                    animateTextChange(chargingStatusTextView, state);
+                if (!pluggedStatusTextView.getText().toString().equals(pluggedState)) {
+                    animateTextChange(pluggedStatusTextView, pluggedState);
                 }
 
                 if (!healthTextView.getText().toString().equals(health)) {
@@ -97,6 +100,20 @@ public class FragmentBatteryInfo extends Fragment {
                 if (!batteryTemperatureTextView.getText().toString().equals(temperature + "° C")) {
                     animateTextChange(batteryTemperatureTextView, temperature + "° C");
                 }
+
+                if (!batteryTechnologyTextView.getText().toString().equals(technology)) {
+                    animateTextChange(batteryTechnologyTextView, technology);
+                }
+
+                if (!batteryCapacityTextView.getText().toString().equals(capacity + " mAh")) {
+                    animateTextChange(batteryCapacityTextView, capacity + " mAh");
+                }
+
+                if (!batteryVoltageTextview.getText().toString().equals(voltage + " mV")) {
+                    animateTextChange(batteryVoltageTextview, voltage + " mV");
+                }
+
+                batteryChargingIndicatorLottie.setVisibility("Charging".equals(statusLbl) ? View.VISIBLE : View.GONE);
 
                 batteryLevelProgressLottie.setProgress(batteryLevel / 100f);
             });
@@ -128,6 +145,7 @@ public class FragmentBatteryInfo extends Fragment {
             @Override
             public void onAnimationStart(Animation animation) {
             }
+
             @Override
             public void onAnimationEnd(Animation animation) {
                 textView.setText(newText); // Set new text
@@ -137,6 +155,7 @@ public class FragmentBatteryInfo extends Fragment {
                 fadeIn.setDuration(250); // Animation duration in milliseconds
                 textView.startAnimation(fadeIn);
             }
+
             @Override
             public void onAnimationRepeat(Animation animation) {
             }

@@ -47,9 +47,10 @@ public class BatteryService extends Service {
 
                 SharedPreferences sharedPreferences = context.getSharedPreferences(getString(R.string.SHARED_PREFERENCE_MAIN), Context.MODE_PRIVATE);
                 desiredBatteryChargedLevel = sharedPreferences.getInt(getString(R.string.BATTERY_CHARGED_ALARM_INT), 90);
+//                desiredBatteryChargedLevel = 40;
+                batteryChargedAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), false);
                 desiredBatteryLowLevel = sharedPreferences.getInt(getString(R.string.BATTERY_LOW_ALARM_INT), 25);
                 batteryLowAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_LOW_ALARM_ON_BOOL), false);
-                batteryChargedAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), false);
 
 
 
@@ -65,12 +66,16 @@ public class BatteryService extends Service {
 
 
 
+                Log.d("aa", batteryLevel + "  " + batteryChargedAlarmOn + "  " + desiredBatteryChargedLevel
+                        + "  " + isCharging + "  " + (batteryLevel >= desiredBatteryChargedLevel));
 
                 if (batteryChargedAlarmOn){
                     if (isCharging && batteryLevel >= desiredBatteryChargedLevel) {
                         startAlarm(context);
+                        Log.d("aa", "on");
                     } else {
                         stopAlarm();
+                        Log.d("aa", "stop");
                     }
                 }
 
@@ -160,6 +165,7 @@ public class BatteryService extends Service {
 
     public void startAlarm(Context context) {
         if (!isAlarmPlaying) {
+            Log.d("aa", "play");
             isAlarmPlaying = true;
             Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
             if (alarmUri == null) {

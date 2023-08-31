@@ -40,6 +40,8 @@ import java.util.Objects;
 
 public class FragmentBatterYell extends Fragment {
 
+    private final Handler handlerBatteryCharged = new Handler();
+    private final Handler handlerBatteryLow = new Handler();
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Intent serviceIntent;
@@ -49,15 +51,11 @@ public class FragmentBatterYell extends Fragment {
     LinearLayout batteryChargedAlarmExtraLayout, batteryLowAlarmExtraLayout, batteryServiceExtraLayout;
     private LottieAnimationView batteryChargedLoadingLottie, batteryLowLoadingLottie;
     private int permissionDenialCount = 0;
-    private final Handler handlerBatteryCharged = new Handler();
-    private final Handler handlerBatteryLow = new Handler();
 
 
     public FragmentBatterYell() {
         // Required empty public constructor
     }
-
-
 
 
     @Override
@@ -82,7 +80,6 @@ public class FragmentBatterYell extends Fragment {
         batteryLowLoadingLottie = v.findViewById(R.id.battery_low_alarm_preference_save_loading_lottie_id);
 
 
-
         sharedPreferences = requireContext().getSharedPreferences(getString(R.string.SHARED_PREFERENCE_MAIN), MODE_PRIVATE);
         editor = sharedPreferences.edit();
         serviceIntent = new Intent(requireContext(), BatteryService.class);
@@ -95,7 +92,6 @@ public class FragmentBatterYell extends Fragment {
                 batteryChargedAlarmExtraLayout.setVisibility(isChecked ? View.VISIBLE : View.GONE);
                 editor.putBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), isChecked);
                 editor.apply();
-
             }
         });
         batteryLowAlarmSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -164,7 +160,25 @@ public class FragmentBatterYell extends Fragment {
         });
 
         return v;
-    }    private final ActivityResultLauncher<String[]> permissionLauncher = registerForActivityResult(
+    }
+
+    private void animatePercentageChange(TextView textView, int newValue) {
+        int oldValue = Integer.parseInt(textView.getText().toString().replace("%", ""));
+
+        ValueAnimator animator = ValueAnimator.ofInt(oldValue, newValue);
+        animator.setDuration(500); // Animation duration in milliseconds
+
+        animator.addUpdateListener(valueAnimator -> {
+            int animatedValue = (int) valueAnimator.getAnimatedValue();
+            String percentage = animatedValue + "%";
+            textView.setText(percentage);
+        });
+
+        animator.start();
+    }
+
+
+    private final ActivityResultLauncher<String[]> permissionLauncher = registerForActivityResult(
             new ActivityResultContracts.RequestMultiplePermissions(),
             result -> {
                 if (Boolean.TRUE.equals(result.getOrDefault(Manifest.permission.POST_NOTIFICATIONS, false))) {
@@ -186,21 +200,6 @@ public class FragmentBatterYell extends Fragment {
                 }
             }
     );
-
-    private void animatePercentageChange(TextView textView, int newValue) {
-        int oldValue = Integer.parseInt(textView.getText().toString().replace("%", ""));
-
-        ValueAnimator animator = ValueAnimator.ofInt(oldValue, newValue);
-        animator.setDuration(500); // Animation duration in milliseconds
-
-        animator.addUpdateListener(valueAnimator -> {
-            int animatedValue = (int) valueAnimator.getAnimatedValue();
-            String percentage = animatedValue + "%";
-            textView.setText(percentage);
-        });
-
-        animator.start();
-    }
 
     private void startBatteryService() {
         if (notificationAllowed()) {
@@ -271,7 +270,7 @@ public class FragmentBatterYell extends Fragment {
         int preferredChargedAlarmPercentage = sharedPreferences.getInt(getString(R.string.BATTERY_CHARGED_ALARM_INT), 90);
         int preferredLowBatteryAlarmPercentage = sharedPreferences.getInt(getString(R.string.BATTERY_LOW_ALARM_INT), 25);
         boolean batteryLowAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_LOW_ALARM_ON_BOOL), false);
-        boolean batteryChargedAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), true);
+        boolean batteryChargedAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), false);
         boolean batteryServiceOn = isMyServiceRunning(BatteryService.class);
 
         chargedPercentageTextView.setText(String.valueOf(preferredChargedAlarmPercentage) + "%");
@@ -286,5 +285,7 @@ public class FragmentBatterYell extends Fragment {
         batteryLowAlarmSwitch.setChecked(batteryLowAlarmOn);
         batteryChargedAlarmSwitch.setChecked(batteryChargedAlarmOn);
     }
+
+
 
 }
