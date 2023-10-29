@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatterYell;
 import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatteryInfo;
+import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatteryUsage;
 import com.bmarpc.acpsiam.batteryells.fragments.FragmentSettings;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

@@ -1,28 +1,18 @@
 package com.bmarpc.acpsiam.batteryells.fragments;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.preference.PreferenceFragmentCompat;
 
 import com.bmarpc.acpsiam.batteryells.R;
 
-public class FragmentSettings extends Fragment {
-
-    public FragmentSettings() {
-        // Required empty public constructor
-    }
+public class FragmentSettings extends PreferenceFragmentCompat {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_settings, container, false);
+    public void onCreatePreferences(@Nullable Bundle savedInstanceState, @Nullable String rootKey) {
+        setPreferencesFromResource(R.xml.preference_screen, rootKey);
 
-
-        return v;
     }
 }

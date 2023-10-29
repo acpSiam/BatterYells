@@ -104,8 +104,8 @@ public class BatteryService extends Service {
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Battery Yells")
-                .setContentText("when it is charged enough 😉")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentText(getString(R.string.battery_yells_slogun))
+                .setSmallIcon(R.drawable.lightbulb_solid)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

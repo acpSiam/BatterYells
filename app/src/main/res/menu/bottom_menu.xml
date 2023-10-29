@@ -4,17 +4,17 @@
 
     <item
         android:id="@+id/bottom_menu_settings_id"
-        android:title="Settings"
+        android:title="@string/settings"
         android:icon="@drawable/round_settings_24"/>
 
     <item
         android:id="@+id/bottom_menu_batteryell_id"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/round_access_alarm_24"/>
 
     <item
         android:id="@+id/bottom_menu_battery_info_id"
-        android:title="Info"
+        android:title="@string/info"
         android:icon="@drawable/round_battery_std_24"/>
 
 </menu>

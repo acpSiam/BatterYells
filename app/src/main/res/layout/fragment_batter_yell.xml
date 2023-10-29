@@ -26,7 +26,7 @@
             android:layout_height="80dp"
             android:fontFamily="@font/signika"
             android:padding="16dp"
-            android:text="Turn on battery yelling?"
+            android:text="@string/turn_on_battery_yelling"
             android:textSize="18sp" />
 
     </com.google.android.material.card.MaterialCardView>
@@ -77,7 +77,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/signika"
                             android:labelFor="@id/battery_charged_alarm_switch_id"
-                            android:text="Battery charged alarm"
+                            android:text="@string/battery_charged_alarm"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -141,7 +141,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/signika"
-                                android:text="Ring alarm when battery reaches:" />
+                                android:text="@string/ring_alarm_when_battery_reaches" />
 
                             <TextView
                                 android:id="@+id/charged_percentage_textview_id"
@@ -176,7 +176,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/open_sans"
-                                    android:text="Battery will ring alarm when reached up to a specific percentage and is still charging."
+                                    android:text="@string/battery_charged_guide"
                                     android:textSize="11sp"
                                     android:textStyle="italic" />
                             </LinearLayout>
@@ -219,7 +219,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/signika"
                             android:labelFor="@+id/battery_low_alarm_switch_id"
-                            android:text="Battery low alarm"
+                            android:text="@string/battery_low_alarm"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -291,7 +291,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/signika"
-                                android:text="Ring alarm when battery is less than:" />
+                                android:text="@string/ring_alarm_when_battery_is_less_than" />
 
                             <TextView
                                 android:id="@+id/low_percentage_textview_id"
@@ -327,7 +327,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/open_sans"
-                                    android:text="Battery will ring alarm when reached down to a specific percentage and is still not charging."
+                                    android:text="@string/battery_low_guide"
                                     android:textSize="11sp"
                                     android:textStyle="italic" />
                             </LinearLayout>

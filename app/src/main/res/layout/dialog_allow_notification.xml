@@ -23,13 +23,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Please click 'Allow' when the permission is asked for" />
+            android:text="@string/dialog_permission_request_caption" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/allow_notification_dialog_ok_button_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ok"
+            android:text="@string/ok"
             android:layout_gravity="end"
             android:theme="@style/ThemeOverlay.Material3.Button.TextButton" />
 

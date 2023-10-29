@@ -189,7 +189,7 @@ public class FragmentBatterYell extends Fragment {
                     permissionDenialCount++;
 
                     if (permissionDenialCount > 0) {
-                        Toast.makeText(requireContext(), "Please allow notifications to start the service", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(requireContext(), R.string.allow_notification_request_text, Toast.LENGTH_SHORT).show();
                         batteryServiceSwitch.setChecked(false);
 
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
