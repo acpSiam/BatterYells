@@ -1,5 +1,6 @@
 package com.bmarpc.acpsiam.batteryells;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -127,6 +128,7 @@ public class BatteryInfoReceiver extends BroadcastReceiver {
 
 
 
+    @SuppressLint("PrivateApi")
     public double getBatteryCapacity(Context context) {
         Object mPowerProfile;
         double batteryCapacity = 0;

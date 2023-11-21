@@ -18,9 +18,11 @@
         app:layout_constraintBottom_toTopOf="@id/fragment_layout_id">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_id"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:title="BatterYells" />
+            app:title="BatterYells"
+            app:menu="@menu/menu_toolbar"/>
     </com.google.android.material.appbar.AppBarLayout>
 
 

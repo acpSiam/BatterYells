@@ -1,10 +1,15 @@
 package com.bmarpc.acpsiam.batteryells;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -19,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
+    Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
         //*Finding IDs
         bottomNavigationView = findViewById(R.id.bottom_navigation_view_id);
+        toolbar = findViewById(R.id.toolbar_id);
 
 
 
+        setSupportActionBar(toolbar);
 
         selectFragment(new FragmentBatterYell());
         bottomNavigationView.setSelectedItemId(R.id.bottom_menu_batteryell_id);
@@ -53,8 +63,27 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+
+
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.dev_menu_option_id) {
+            startActivity(new Intent(MainActivity.this, DevActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void selectFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();

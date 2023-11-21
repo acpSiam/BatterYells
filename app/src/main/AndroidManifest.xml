@@ -20,6 +20,11 @@
         android:theme="@style/AppTheme.SkyBlue"
         tools:targetApi="31">
         <activity
+            android:name=".DevActivity"
+            android:exported="false"
+            android:label="@string/title_activity_dev"
+            android:theme="@style/AppTheme.SkyBlue" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -33,6 +38,17 @@
             android:name=".BatteryService"
             android:enabled="true"
             android:exported="false" />
+
+        <receiver android:name=".BatteryWidgetReceiever"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/batteryells_widget_info" />
+        </receiver>
     </application>
+
 
 </manifest>

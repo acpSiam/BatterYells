@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="AppTheme.SkyBlue" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
@@ -43,6 +44,7 @@
         <item name="labelStyle">@style/My_Tooltip</item>
         <item name="materialThemeOverlay">@style/Widget.Material3.Slider</item>
     </style>
+
     <style name="My_Tooltip" parent="Widget.Material3.Tooltip">
         <item name="backgroundTint">@color/my_md_theme_light_onErrorContainer</item>
     </style>

@@ -16,4 +16,5 @@
     <string name="battery_low_alarm">Battery low alarm</string>
     <string name="ring_alarm_when_battery_is_less_than">Ring alarm when battery is less than:</string>
     <string name="battery_low_guide">Battery will ring alarm when reached down to a specific percentage and is still not charging.</string>
+    <string name="title_activity_dev">DevActivity</string>
 </resources>

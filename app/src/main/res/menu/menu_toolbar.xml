@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Charging History"/>
+        android:title="About Dev"
+        android:icon="@drawable/ic_expand_more_24dp"
+        android:id="@+id/dev_menu_option_id"
+        app:showAsAction="never" />
 
 
 </menu>
