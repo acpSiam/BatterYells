@@ -5,6 +5,15 @@
     <PreferenceCategory
         android:title="Settings">
 
+        <Preference
+            android:title="@string/color_preference_title"
+            app:summary="@string/color_preference_summary"
+            app:icon="@drawable/rounded_format_paint_24"
+            android:key="@string/COLOR_PREFERENCE"/>
+
+        <com.bmarpc.acpsiam.batteryells.otherclasses.LanguagePreference
+            android:title="@string/language_preference_title"
+            app:icon="@drawable/round_language_24"/>
 
     </PreferenceCategory>
 </PreferenceScreen>

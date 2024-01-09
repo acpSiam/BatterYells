@@ -265,7 +265,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:stepSize="5"
-                            android:theme="@style/light_error_colors"
+                            android:theme="@style/error_colors"
                             android:value="20"
                             android:valueFrom="10"
                             android:valueTo="30"

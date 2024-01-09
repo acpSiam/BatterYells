@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SHARED_PREFERENCE_MAIN" translatable="false">SHARED_PREFERENCE_MAIN</string>
+    <string name="BATTERY_SERVICE_ON_BOOL" translatable="false">BATTERY_SERVICE_ON_BOOL</string>
+    <string name="BATTERY_CHARGED_ALARM_ON_BOOL" translatable="false">BATTERY_CHARGED_ALARM_ON_BOOL</string>
+    <string name="BATTERY_LOW_ALARM_ON_BOOL" translatable="false">BATTERY_LOW_ALARM_ON_BOOL</string>
+    <string name="BATTERY_CHARGED_ALARM_INT" translatable="false">BATTERY_CHARGED_ALARM_INT</string>
+    <string name="BATTERY_LOW_ALARM_INT" translatable="false">BATTERY_LOW_ALARM_INT</string>
+
+    <string name="SHARED_PREFERENCES_APP_PROCESS" translatable="false">SHARED_PREFERENCES_APP_PROCESS</string>
+    <string name="CURRENT_LOCALE" translatable="false">CURRENT_LOCALE</string>
+    <string name="SELECTED_THEME_COLOR" translatable="false">SELECTED_THEME_COLOR_STR</string>
+    <string name="THEME_STATE" translatable="false">THEME_STATE</string>
+
+</resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="SHARED_PREFERENCE_MAIN">SHARED_PREFERENCE_MAIN</string>
-    <string name="BATTERY_SERVICE_ON_BOOL">BATTERY_SERVICE_ON_BOOL</string>
-    <string name="BATTERY_CHARGED_ALARM_ON_BOOL">BATTERY_CHARGED_ALARM_ON_BOOL</string>
-    <string name="BATTERY_LOW_ALARM_ON_BOOL">BATTERY_LOW_ALARM_ON_BOOL</string>
-    <string name="BATTERY_CHARGED_ALARM_INT">BATTERY_CHARGED_ALARM_INT</string>
-    <string name="BATTERY_LOW_ALARM_INT">BATTERY_LOW_ALARM_INT</string>
-</resources>

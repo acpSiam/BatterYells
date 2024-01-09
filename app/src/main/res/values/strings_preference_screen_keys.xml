@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Preference Screen Keys-->
+    <string name="COLOR_PREFERENCE" translatable="false">COLOR_PREFERENCE</string>
+    <string name="LANGUAGE_PREFERENCE" translatable="false">LANGUAGE_PREFERENCE</string>
+
+
+    <!--    Preferred Color Keys-->
+    <string name="PREFERRED_COLOR_SKYBLUE" translatable="false">CYAN</string>
+    <string name="PREFERRED_COLOR_CYAN" translatable="false">CYAN</string>
+    <string name="PREFERRED_COLOR_PURPLE" translatable="false">PURPLE</string>
+    <string name="PREFERRED_COLOR_LIME" translatable="false">LIME</string>
+    <string name="PREFERRED_COLOR_CORAL" translatable="false">CORAL</string>
+    <string name="PREFERRED_COLOR_VIOLET" translatable="false">VIOLET</string>
+    <string name="PREFERRED_COLOR_INDIGO" translatable="false">INDIGO</string>
+    <string name="PREFERRED_COLOR_BLUE" translatable="false">BLUE</string>
+    <string name="PREFERRED_COLOR_GREEN" translatable="false">MINT_GREEN</string>
+    <string name="PREFERRED_COLOR_YELLOW" translatable="false">GOLDEN_YELLOW</string>
+    <string name="PREFERRED_COLOR_ORANGE" translatable="false">ORANGE</string>
+    <string name="PREFERRED_COLOR_RED" translatable="false">RED</string>
+</resources>

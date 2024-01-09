@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Preference Screen-->
+    <string name="color_preference_title">App Color</string>
+    <string name="color_preference_summary">Preferred color:</string>
+    <string name="language_preference_title">Language</string>
+    <string name="preferred_color_selection">Choose your preferred color</string> <!-- DIALOGUE COLOR CHOICE-->
+    <string name="purple_message_string"><small>for BTS armies :></small></string> <!-- DIALOGUE COLOR CHOICE-->
+</resources>

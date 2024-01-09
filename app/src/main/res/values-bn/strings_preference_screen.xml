@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Preference Screen-->
+    <string name="color_preference_title">অ্যাপের রঙ</string>
+    <string name="color_preference_summary">পছন্দসই রঙঃ</string>
+    <string name="language_preference_title">ভাষা</string>
+    <string name="preferred_color_selection">পছন্দের রঙ বাছাই করুন</string>
+    <string name="purple_message_string"><small>বিটিএস আর্মিদের জন্য :></small></string>
+</resources>

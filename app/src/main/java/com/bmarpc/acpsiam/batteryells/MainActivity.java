@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatterYell;
 import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatteryInfo;
-import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatteryUsage;
-import com.bmarpc.acpsiam.batteryells.fragments.FragmentSettings;
+import com.bmarpc.acpsiam.batteryells.fragments.PreferenceScreenFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         int itemId = item.getItemId();
                         if (itemId == R.id.bottom_menu_settings_id) {
-                            selectFragment(new FragmentSettings());
+                            selectFragment(new PreferenceScreenFragment());
                             return true;
                         } else if (itemId == R.id.bottom_menu_batteryell_id) {
                             selectFragment(new FragmentBatterYell());

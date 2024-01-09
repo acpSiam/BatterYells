@@ -4,8 +4,8 @@
 
     <item
         android:id="@+id/bottom_menu_settings_id"
-        android:title="@string/settings"
-        android:icon="@drawable/round_settings_24"/>
+        android:icon="@drawable/round_settings_24"
+        android:title="@string/more" />
 
     <item
         android:id="@+id/bottom_menu_batteryell_id"
