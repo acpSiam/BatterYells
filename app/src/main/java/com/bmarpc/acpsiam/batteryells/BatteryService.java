@@ -1,5 +1,6 @@
 package com.bmarpc.acpsiam.batteryells;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
@@ -98,6 +99,7 @@ public class BatteryService extends Service {
 
 
 
+    @SuppressLint("ForegroundServiceType")
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         createNotificationChannel();
@@ -105,7 +107,7 @@ public class BatteryService extends Service {
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Battery Yells")
                 .setContentText(getString(R.string.battery_yells_slogun))
-                .setSmallIcon(R.drawable.lightbulb_solid)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);

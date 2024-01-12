@@ -130,7 +130,7 @@
                             app:thumbColor="?colorOnPrimary"
                             app:trackHeight="32dp" />
 
-                        <LinearLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -138,21 +138,29 @@
 
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:id="@+id/textView"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/signika"
-                                android:text="@string/ring_alarm_when_battery_reaches" />
+                                android:text="@string/ring_alarm_when_battery_reaches"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/charged_percentage_textview_id"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/charged_percentage_textview_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
                                 android:fontFamily="@font/signika"
                                 android:text="95%"
                                 android:textSize="17sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/textView"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <com.google.android.material.card.MaterialCardView
                             style="@style/Widget.Material3.CardView.Filled"
@@ -170,7 +178,7 @@
                                     android:layout_height="12dp"
                                     android:layout_marginTop="3dp"
                                     android:layout_marginEnd="6dp"
-                                    android:src="@drawable/lightbulb_solid" />
+                                    android:src="@drawable/round_lightbulb_24" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -197,6 +205,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card_view_battery_battery_charged_id">
@@ -280,7 +289,7 @@
                             app:trackHeight="32dp" />
 
 
-                        <LinearLayout
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -288,21 +297,29 @@
 
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:id="@+id/textView2"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/signika"
-                                android:text="@string/ring_alarm_when_battery_is_less_than" />
+                                android:text="@string/ring_alarm_when_battery_is_less_than"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/low_percentage_textview_id"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
                                 android:id="@+id/low_percentage_textview_id"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="12dp"
                                 android:fontFamily="@font/signika"
                                 android:text="20%"
                                 android:textSize="17sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/textView2"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                         <com.google.android.material.card.MaterialCardView
@@ -321,7 +338,7 @@
                                     android:layout_height="12dp"
                                     android:layout_marginTop="3dp"
                                     android:layout_marginEnd="6dp"
-                                    android:src="@drawable/lightbulb_solid" />
+                                    android:src="@drawable/round_lightbulb_24" />
 
                                 <TextView
                                     android:layout_width="wrap_content"

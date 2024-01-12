@@ -4,9 +4,17 @@
 
     <item
         android:title="About Dev"
-        android:icon="@drawable/ic_expand_more_24dp"
+        android:icon="@drawable/round_lightbulb_24"
+        android:id="@+id/tips_menu_option_id"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:title="About Dev"
+        android:icon="@drawable/dev_transparent_48"
+        android:iconTint="?colorControlNormal"
         android:id="@+id/dev_menu_option_id"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
+
 
 
 </menu>

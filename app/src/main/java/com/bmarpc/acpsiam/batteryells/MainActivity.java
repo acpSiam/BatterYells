@@ -1,6 +1,7 @@
 package com.bmarpc.acpsiam.batteryells;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,17 +19,75 @@ import com.bmarpc.acpsiam.batteryells.fragments.FragmentBatteryInfo;
 import com.bmarpc.acpsiam.batteryells.fragments.PreferenceScreenFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import com.bmarpc.acpsiam.batteryells.otherclasses.LanguageHelper;
+
 public class MainActivity extends AppCompatActivity {
 
 
     BottomNavigationView bottomNavigationView;
     Toolbar toolbar;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor sharedPreferenceEditor;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //*Set the language based on user's previous preference
+        LanguageHelper.INSTANCE.setLocale(this, LanguageHelper.INSTANCE.getCurrentLocalePref(this));
+
+
+
+
+        //*Initializing important Shared Preferences
+        sharedPreferences = getSharedPreferences(getString(R.string.SHARED_PREFERENCES_APP_PROCESS), MODE_PRIVATE);
+        sharedPreferenceEditor = sharedPreferences.edit();
+
+        //Currently chosen Theme by user
+        String currentTheme = sharedPreferences.getString(getString(R.string.SELECTED_THEME_COLOR),
+                getString(R.string.PREFERRED_COLOR_BLUE));
+
+
+            switch (currentTheme) {
+                case "CYAN":
+                    setTheme(R.style.AppTheme_Blue); // Apply the dark version of the "CYAN" theme
+                    break;
+                case "PURPLE":
+                    setTheme(R.style.AppTheme_Purple); // Apply the dark version of the "PURPLE" theme
+                    break;
+                case "LIME":
+                    setTheme(R.style.AppTheme_Lime); // Apply the dark version of the "LIME" theme
+                    break;
+                case "CORAL":
+                    setTheme(R.style.AppTheme_Coral); // Apply the dark version of the "CORAL" theme
+                    break;
+                case "VIOLET":
+                    setTheme(R.style.AppTheme_Violet); // Apply the dark version of the "VIOLET" theme
+                    break;
+                case "INDIGO":
+                    setTheme(R.style.AppTheme_Indigo); // Apply the dark version of the "INDIGO" theme
+                    break;
+                case "MINT_GREEN":
+                    setTheme(R.style.AppTheme_Mint_Green); // Apply the dark version of the "GREEN" theme
+                    break;
+                case "GOLDEN_YELLOW":
+                    setTheme(R.style.AppTheme_Golden_Yellow); // Apply the dark version of the "YELLOW" theme
+                    break;
+                case "ORANGE":
+                    setTheme(R.style.AppTheme_Orange); // Apply the dark version of the "ORANGE" theme
+                    break;
+                case "RED":
+                    setTheme(R.style.AppTheme_Red); // Apply the dark version of the "RED" theme
+                    break;
+                default:
+                    // Default theme if the color name is not recognized
+                    setTheme(R.style.AppTheme_Blue);
+                    break;
+
+            }
+
         setContentView(R.layout.activity_main);
 
 
@@ -40,8 +99,10 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
+
+
+
         selectFragment(new FragmentBatterYell());
-        bottomNavigationView.setSelectedItemId(R.id.bottom_menu_batteryell_id);
         bottomNavigationView.setOnItemSelectedListener(
                 new BottomNavigationView.OnItemSelectedListener() {
                     @Override
@@ -62,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
+        bottomNavigationView.setSelectedItemId(R.id.bottom_menu_batteryell_id);
 
 
     }
@@ -89,5 +151,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.fragment_layout_id, fragment);
         fragmentTransaction.commit();
     }
+
+
+
 
 }

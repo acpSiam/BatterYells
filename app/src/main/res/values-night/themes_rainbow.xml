@@ -106,7 +106,7 @@
 
 
 
-    <style name="Green_Ap.Minte_Dark" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="AppTheme.Mint_Green" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/mint_green_md_theme_dark_primary</item>
         <item name="colorOnPrimary">@color/mint_green_md_theme_dark_onPrimary</item>
         <item name="colorPrimaryContainer">@color/mint_green_md_theme_dark_primaryContainer</item>
