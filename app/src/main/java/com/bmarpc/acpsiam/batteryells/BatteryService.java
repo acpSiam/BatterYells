@@ -48,7 +48,7 @@ public class BatteryService extends Service {
 
                 SharedPreferences sharedPreferences = context.getSharedPreferences(getString(R.string.SHARED_PREFERENCE_MAIN), Context.MODE_PRIVATE);
                 desiredBatteryChargedLevel = sharedPreferences.getInt(getString(R.string.BATTERY_CHARGED_ALARM_INT), 90);
-//                desiredBatteryChargedLevel = 40;
+//                desiredBatteryChargedLevel = 97;
                 batteryChargedAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_CHARGED_ALARM_ON_BOOL), false);
                 desiredBatteryLowLevel = sharedPreferences.getInt(getString(R.string.BATTERY_LOW_ALARM_INT), 25);
                 batteryLowAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_LOW_ALARM_ON_BOOL), false);
@@ -137,32 +137,6 @@ public class BatteryService extends Service {
         }
     }
 
-
-//    public void startAlarm(Context context) {
-//        if (!isAlarmPlaying) {
-//            isAlarmPlaying = true;
-//            // Play alarm sound
-//            Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-//            if (alarmUri == null) {
-//                alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//            }
-//
-//            mediaPlayer = new MediaPlayer();
-//            try {
-//                mediaPlayer.setDataSource(context, alarmUri);
-//                mediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);
-//                mediaPlayer.prepare();
-//                mediaPlayer.setOnCompletionListener(mp -> {
-//                    mediaPlayer.reset();
-//                    mediaPlayer.release();
-//                    isAlarmPlaying = false; // Reset the flag
-//                });
-//                mediaPlayer.start();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
 
     public void startAlarm(Context context) {
