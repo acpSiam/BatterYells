@@ -1,8 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
 
-
-
     <style name="AppTheme.Cyan" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/cyan_md_theme_light_primary</item>
         <item name="colorOnPrimary">@color/cyan_md_theme_light_onPrimary</item>
@@ -11,7 +9,8 @@
         <item name="colorSecondary">@color/cyan_md_theme_light_secondary</item>
         <item name="colorOnSecondary">@color/cyan_md_theme_light_onSecondary</item>
         <item name="colorSecondaryContainer">@color/cyan_md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/cyan_md_theme_light_onSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/cyan_md_theme_light_onSecondaryContainer
+        </item>
         <item name="colorTertiary">@color/cyan_md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/cyan_md_theme_light_onTertiary</item>
         <item name="colorTertiaryContainer">@color/cyan_md_theme_light_tertiaryContainer</item>
@@ -37,11 +36,6 @@
     </style>
 
 
-
-
-
-
-
     <!---->
     <!---->
 
@@ -54,11 +48,13 @@
         <item name="colorSecondary">@color/purple_md_theme_light_secondary</item>
         <item name="colorOnSecondary">@color/purple_md_theme_light_onSecondary</item>
         <item name="colorSecondaryContainer">@color/purple_md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/purple_md_theme_light_onSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/purple_md_theme_light_onSecondaryContainer
+        </item>
         <item name="colorTertiary">@color/purple_md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/purple_md_theme_light_onTertiary</item>
         <item name="colorTertiaryContainer">@color/purple_md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/purple_md_theme_light_onTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/purple_md_theme_light_onTertiaryContainer
+        </item>
         <item name="colorError">@color/purple_md_theme_light_error</item>
         <item name="colorErrorContainer">@color/purple_md_theme_light_errorContainer</item>
         <item name="colorOnError">@color/purple_md_theme_light_onError</item>
@@ -80,12 +76,6 @@
     </style>
 
 
-
-
-
-
-
-
     <!---->
     <!---->
 
@@ -98,7 +88,8 @@
         <item name="colorSecondary">@color/lime_md_theme_light_secondary</item>
         <item name="colorOnSecondary">@color/lime_md_theme_light_onSecondary</item>
         <item name="colorSecondaryContainer">@color/lime_md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/lime_md_theme_light_onSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/lime_md_theme_light_onSecondaryContainer
+        </item>
         <item name="colorTertiary">@color/lime_md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/lime_md_theme_light_onTertiary</item>
         <item name="colorTertiaryContainer">@color/lime_md_theme_light_tertiaryContainer</item>
@@ -124,14 +115,8 @@
     </style>
 
 
-
-
-
-
-
     <!---->
     <!---->
-
 
 
     <style name="AppTheme.Coral" parent="Theme.Material3.Light.NoActionBar">
@@ -142,7 +127,8 @@
         <item name="colorSecondary">@color/coral_md_theme_light_secondary</item>
         <item name="colorOnSecondary">@color/coral_md_theme_light_onSecondary</item>
         <item name="colorSecondaryContainer">@color/coral_md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/coral_md_theme_light_onSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/coral_md_theme_light_onSecondaryContainer
+        </item>
         <item name="colorTertiary">@color/coral_md_theme_light_tertiary</item>
         <item name="colorOnTertiary">@color/coral_md_theme_light_onTertiary</item>
         <item name="colorTertiaryContainer">@color/coral_md_theme_light_tertiaryContainer</item>
@@ -168,12 +154,6 @@
     </style>
 
 
-
-
-
-
-
-
     <style name="error_colors">
         <item name="colorError">@color/my_md_theme_light_error</item>
         <item name="colorErrorContainer">@color/my_md_theme_light_errorContainer</item>
@@ -189,6 +169,7 @@
     <style name="My_Tooltip" parent="Widget.Material3.Tooltip">
         <item name="backgroundTint">@color/my_md_theme_light_onErrorContainer</item>
     </style>
+
 
 
 </resources>

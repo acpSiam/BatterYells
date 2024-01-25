@@ -4,5 +4,5 @@
     android:minHeight="40dp"
     android:resizeMode="none"
     android:widgetCategory="home_screen"
-    android:previewImage="@drawable/img_widget_temperature">
+    android:previewImage="@drawable/img_temperature_widget_preview">
 </appwidget-provider>

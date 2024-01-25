@@ -3,15 +3,12 @@ package com.bmarpc.acpsiam.batteryells
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.drawable.RotateDrawable
 import android.os.BatteryManager
-import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,16 +34,13 @@ import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.width
-import androidx.glance.layout.wrapContentHeight
-import androidx.glance.layout.wrapContentSize
 import androidx.glance.layout.wrapContentWidth
 import androidx.glance.text.FontFamily
 import androidx.glance.text.FontStyle
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
-import androidx.glance.text.TextDecoration
+import androidx.glance.text.TextAlign
 import androidx.glance.text.TextStyle
-import androidx.glance.visibility
 
 class BatteryWidgetReceiever : GlanceAppWidgetReceiver() {
     override val glanceAppWidget: GlanceAppWidget = BatteryWidget()
@@ -90,48 +84,9 @@ fun WidgetContents(
     ) {
         Column(
             modifier = GlanceModifier
-                .wrapContentWidth()
-                .fillMaxHeight(),
-        ) {
-            Text(
-                text = "Device\nTemperature",
-                style = TextStyle(
-                    color = ColorProvider(
-                        day = Color(0xff0e2c3d),
-                        night = Color(0xFFD1E6F3)
-                    ),
-                    fontSize = 13.sp,
-                    fontFamily = FontFamily.Serif
-                ),
-                modifier = GlanceModifier
-                    .padding(bottom = 8.dp)
-            )
-            androidx.glance.layout.Box(
-                contentAlignment = Alignment.Center,
-                modifier = GlanceModifier
-                    .cornerRadius(4.dp)
-                    .height(30.dp)
-                    .width(30.dp)
-                    .background(
-                        day = Color(0xFF4A7EA7),
-                        night = Color(0xFFB5C9D7)
-                    )
-                    .clickable {
-                        currentBatteryTemperature = getBatteryTemperature(context)
-                    }
-            ) {
-
-                Image(
-                    provider = ImageProvider(resId = R.drawable.round_refresh_24),
-                    contentDescription = "Refresh"
-                )
-            }
-        }
-        Column(
-            modifier = GlanceModifier
                 .fillMaxHeight()
-                .fillMaxWidth(),
-            horizontalAlignment = Alignment.End
+                .wrapContentWidth(),
+            horizontalAlignment = Alignment.Start
         ) {
             Text(
                 text = (currentBatteryTemperature / 10f).toString() + "°C",
@@ -159,6 +114,47 @@ fun WidgetContents(
                     fontStyle = FontStyle.Italic
                 )
             )
+        }
+        Column(
+            modifier = GlanceModifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.End
+        ) {
+            Text(
+                text = "Device\nTemperature",
+                style = TextStyle(
+                    color = ColorProvider(
+                        day = Color(0xff0e2c3d),
+                        night = Color(0xFFD1E6F3)
+                    ),
+                    fontSize = 13.sp,
+                    fontFamily = FontFamily.Serif,
+                    textAlign = TextAlign.End
+                ),
+                modifier = GlanceModifier
+                    .padding(bottom = 8.dp)
+            )
+            androidx.glance.layout.Box(
+                contentAlignment = Alignment.Center,
+                modifier = GlanceModifier
+                    .cornerRadius(4.dp)
+                    .height(30.dp)
+                    .width(30.dp)
+                    .background(
+                        day = Color(0xFF4A7EA7),
+                        night = Color(0xFFB5C9D7)
+                    )
+                    .clickable {
+                        currentBatteryTemperature = getBatteryTemperature(context)
+                    }
+            ) {
+
+                Image(
+                    provider = ImageProvider(resId = R.drawable.round_refresh_24),
+                    contentDescription = "Refresh"
+                )
+            }
         }
     }
 }
