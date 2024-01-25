@@ -2,7 +2,6 @@ package com.bmarpc.acpsiam.batteryells.otherclasses
 
 import android.app.Activity
 import android.content.Intent
-import com.bmarpc.acpsiam.batteryells.R
 
 class MyMethods {
     companion object {

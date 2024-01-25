@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="battery_tips">
+                <item name="tip_screen_brightness" translatable="false">[GOOD] Lower screen brightness when not needed, or use adaptive brightness.</item>
+                <item name="tip_close_apps" translatable="false">[GOOD] Close unused apps to prevent unnecessary battery drain.</item>
+                <item name="tip_disable_vibration" translatable="false">[GOOD] Turn off vibration for notifications if not needed.</item>
+                <item name="tip_location_services" translatable="false">[NEUTRAL] Use location services judiciously, and consider turning off GPS when not needed.</item>
+                <item name="tip_avoid_extreme_temps" translatable="false">[DANGEROUS] Avoid exposing your device to extreme temperatures.</item>
+                <item name="tip_unplug_fully_charged" translatable="false">[GOOD] Disconnect your device once it\'s fully charged to prevent overcharging.</item>
+                <item name="tip_ignore_battery_warnings" translatable="false">[DANGEROUS] Ignoring low battery warnings can lead to data loss or a sudden shutdown.</item>
+                <item name="tip_use_unauthorized_chargers" translatable="false">[DANGEROUS] Using unauthorized chargers can damage the battery and pose a safety risk.</item>
+        </string-array>
+</resources>

@@ -1,5 +1,6 @@
 package com.bmarpc.acpsiam.batteryells
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -9,14 +10,9 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,35 +27,33 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.bmarpc.acpsiam.batteryells.ui.theme.BatterYellsTheme
@@ -72,11 +66,40 @@ val email = "acpsiam@gmail.com"
 val phone = "+8801836652701"
 
 class DevActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             BatterYellsTheme {
-                Home()
+                Surface (
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Scaffold (
+                        topBar = {
+                            TopAppBar(
+                                title = {
+                                    Text(text = "About DEV")
+                                },
+                                navigationIcon = {
+                                    IconButton(
+                                        onClick = {
+                                            finish()
+                                        }
+                                    ) {
+                                        Icon(
+                                            imageVector = Icons.Default.ArrowBack,
+                                            contentDescription = "Go back"
+                                        )
+                                    }
+                                }
+                            )
+                        },
+                        modifier = Modifier
+                    ) {values ->
+                        Home(modifier = Modifier.padding(values))
+                    }
+                }
             }
         }
     }
@@ -85,16 +108,22 @@ class DevActivity : ComponentActivity() {
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Home() {
+fun Home(modifier: Modifier = Modifier) {
 
     val mContext = LocalContext.current
 
     Box(
+        contentAlignment = Alignment.TopCenter,
         modifier = Modifier
-            .padding(22.dp)
+            .fillMaxSize()
     ) {
         OutlinedCard(
-            modifier = Modifier.fillMaxWidth()
+            colors = CardDefaults
+                .cardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer
+                ),
+            modifier = modifier
+                .fillMaxWidth(0.9f)
         ) {
             Column(
                 modifier = Modifier
@@ -181,6 +210,10 @@ fun Home() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         ElevatedCard(
+                            colors = CardDefaults
+                                .cardColors(
+                                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                                ),
                             modifier = Modifier
                                 .wrapContentSize()
                                 .clip(RoundedCornerShape(12.dp))
