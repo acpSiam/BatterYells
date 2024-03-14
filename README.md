@@ -4,7 +4,7 @@
 # <img align="left" loading="lazy" src="screenshots/RoundBatterYells.png" height="50"/> BatterYells - Your Battery Guardian
 
 
-<a href='https://raw.githubusercontent.com/acpSiam/BatterYells/master/app/release/BatterYells%20%5BV1.0%20-%20Anika%5D.apk'><img alt='Download BatterYells' src='screenshots/download_button.png' height='80'/></a>
+<a href='https://raw.githubusercontent.com/acpSiam/BatterYells/master/app/release/BatterYells%20%5BV1.1%20-%20Anika%5D.apk'><img alt='Download BatterYells' src='screenshots/download_button.png' height='80'/></a>
 
 [//]: # (<img alt='Download BatterYells &#40;Not Available Yet&#41;' src='screenshots/download_not_available.png' height='80'/> )
 
