@@ -1,5 +1,6 @@
 package com.bmarpc.acpsiam.batteryells;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
@@ -54,7 +56,6 @@ public class BatteryService extends Service {
                 batteryLowAlarmOn = sharedPreferences.getBoolean(getString(R.string.BATTERY_LOW_ALARM_ON_BOOL), false);
 
 
-
                 int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
                 int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
                 int batteryLevel = (int) ((level / (float) scale) * 100);
@@ -66,11 +67,10 @@ public class BatteryService extends Service {
                 boolean isCharging = (plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS);
 
 
-
                 Log.d("aa", batteryLevel + "  " + batteryChargedAlarmOn + "  " + desiredBatteryChargedLevel
                         + "  " + isCharging + "  " + (batteryLevel >= desiredBatteryChargedLevel));
 
-                if (batteryChargedAlarmOn){
+                if (batteryChargedAlarmOn) {
                     if (isCharging && batteryLevel >= desiredBatteryChargedLevel) {
                         startAlarm(context);
                         Log.d("aa", "on");
@@ -98,8 +98,6 @@ public class BatteryService extends Service {
     }
 
 
-
-    @SuppressLint("ForegroundServiceType")
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         createNotificationChannel();
@@ -111,10 +109,15 @@ public class BatteryService extends Service {
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
 
             notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
-            startForeground(NOTIFICATION_ID, notificationBuilder.build());
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                startForeground(NOTIFICATION_ID, notificationBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+            } else {
+                startForeground(NOTIFICATION_ID, notificationBuilder.build());
+            }
 
         }
 
@@ -136,7 +139,6 @@ public class BatteryService extends Service {
             }
         }
     }
-
 
 
     public void startAlarm(Context context) {
@@ -167,10 +169,6 @@ public class BatteryService extends Service {
     }
 
 
-
-
-
-
     public void stopAlarm() {
         if (mediaPlayer != null && mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
@@ -180,8 +178,6 @@ public class BatteryService extends Service {
             isAlarmPlaying = false;
         }
     }
-
-
 
 
     @Override
